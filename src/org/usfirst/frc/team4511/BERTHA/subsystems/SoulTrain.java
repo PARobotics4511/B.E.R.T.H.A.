@@ -31,6 +31,8 @@ public class SoulTrain extends Subsystem {
 		backRight = new CANTalon(RobotMap.backRight);
 		
 		soulTrain = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
+		soulTrain.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+		soulTrain.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
 	}
 
     public void initDefaultCommand() {

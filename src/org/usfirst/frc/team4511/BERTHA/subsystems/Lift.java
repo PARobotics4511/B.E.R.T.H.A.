@@ -27,6 +27,7 @@ public class Lift extends Subsystem {
 		sol1 = new Solenoid(RobotMap.sol1);
 		
 		liftTalon = new CANTalon(RobotMap.lift);
+		
 	}
 	
 

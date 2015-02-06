@@ -26,7 +26,7 @@ public class OI {
 	
 	public OI() {
 		
-		deadzone = .1;
+		deadzone = .25;
 		
 		//sticks
 		stick0 = new Joystick(0);

@@ -18,9 +18,9 @@ public class OI {
 	static Joystick stick0;
 	static Joystick stick1;
 	static JoystickButton butt2;
+	static JoystickButton butt12;
 	static JoystickButton butt3;
-	static JoystickButton butt4;
-	static JoystickButton butt5;
+	static JoystickButton butt13;
 	
 	static double deadzone;
 	
@@ -34,19 +34,19 @@ public class OI {
 		
 		//buttons
 		butt2 = new JoystickButton(stick0, 2);
+		butt12 = new JoystickButton(stick1, 2);
 		butt3 = new JoystickButton(stick0, 3);
-		butt4 = new JoystickButton(stick0, 4);
-		butt5 = new JoystickButton(stick0, 5);
+		butt13 = new JoystickButton(stick1, 3);
 		
 		//arm motor controls
 		butt2.whenPressed(new ArmDown());
 		butt2.whenReleased(new ArmStop());
-		butt3.whenPressed(new ArmUp());
-		butt3.whenReleased(new ArmStop());
+		butt12.whenPressed(new ArmUp());
+		butt12.whenReleased(new ArmStop());
 		
 		//arm pneumatics controls
-		butt4.whenPressed(new ArmIn());
-		butt5.whenPressed(new ArmOut());
+		butt3.whenPressed(new ArmIn());
+		butt13.whenPressed(new ArmOut());
 	}
 	
 	public static double getXInput() {

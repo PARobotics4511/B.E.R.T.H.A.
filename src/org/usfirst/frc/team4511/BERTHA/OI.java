@@ -17,10 +17,11 @@ public class OI {
     // Button button = new JoystickButton(stick, buttonNumber);
 	static Joystick stick0;
 	static Joystick stick1;
+	static JoystickButton butt1;
+	static JoystickButton butt11;
 	static JoystickButton butt2;
 	static JoystickButton butt12;
 	static JoystickButton butt3;
-	static JoystickButton butt13;
 	
 	static double deadzone;
 	
@@ -33,20 +34,23 @@ public class OI {
 		stick1 = new Joystick(1);
 		
 		//buttons
+		butt1 = new JoystickButton(stick0, 1);
+		butt11 = new JoystickButton(stick1, 1);
 		butt2 = new JoystickButton(stick0, 2);
 		butt12 = new JoystickButton(stick1, 2);
 		butt3 = new JoystickButton(stick0, 3);
-		butt13 = new JoystickButton(stick1, 3);
 		
 		//arm motor controls
-		butt2.whenPressed(new ArmDown());
-		butt2.whenReleased(new ArmStop());
-		butt12.whenPressed(new ArmUp());
-		butt12.whenReleased(new ArmStop());
+		butt1.whenPressed(new ArmDown());
+		butt1.whenReleased(new ArmStop());
+		butt11.whenPressed(new ArmUp());
+		butt11.whenReleased(new ArmStop());
 		
 		//arm pneumatics controls
-		butt3.whenPressed(new ArmIn());
-		butt13.whenPressed(new ArmOut());
+		butt2.whenPressed(new ArmIn());
+		butt12.whenPressed(new ArmOut());
+		
+		butt3.whenPressed(new ArmAutoUp());
 	}
 	
 	public static double getXInput() {

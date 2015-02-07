@@ -5,8 +5,9 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4511.BERTHA.commands.ExampleCommand;
+import org.usfirst.frc.team4511.BERTHA.commands.ArmAutoUp;
 import org.usfirst.frc.team4511.BERTHA.subsystems.*;
 
 /**
@@ -32,8 +33,9 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        autonomousCommand = new ArmAutoUp();
         lift.compressor.start();
+        SmartDashboard.putData("Photogate Command", new ArmAutoUp());
     }
 	
 	public void disabledPeriodic() {

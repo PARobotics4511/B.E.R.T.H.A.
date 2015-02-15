@@ -20,14 +20,15 @@ public class OI {
 	static JoystickButton butt1;
 	static JoystickButton butt11;
 	static JoystickButton butt2;
-	static JoystickButton butt12;
+	static JoystickButton butt21;
 	static JoystickButton butt3;
+	static JoystickButton butt31;
 	
 	static double deadzone;
 	
 	public OI() {
 		
-		deadzone = .25;
+		deadzone = .1;
 		
 		//sticks
 		stick0 = new Joystick(0);
@@ -37,20 +38,23 @@ public class OI {
 		butt1 = new JoystickButton(stick0, 1);
 		butt11 = new JoystickButton(stick1, 1);
 		butt2 = new JoystickButton(stick0, 2);
-		butt12 = new JoystickButton(stick1, 2);
+		butt21 = new JoystickButton(stick1, 2);
 		butt3 = new JoystickButton(stick0, 3);
-		
-		//arm motor controls
-		butt1.whenPressed(new ArmDown());
-		butt1.whenReleased(new ArmStop());
-		butt11.whenPressed(new ArmUp());
-		butt11.whenReleased(new ArmStop());
+		butt31 = new JoystickButton(stick1, 3);
 		
 		//arm pneumatics controls
-		butt2.whenPressed(new ArmIn());
-		butt12.whenPressed(new ArmOut());
+		butt1.whenPressed(new ArmIn());
+		butt11.whenPressed(new ArmOut());
 		
-		butt3.whenPressed(new ArmAutoUp());
+		//arm auto motor controls
+		butt2.whenPressed(new ArmAutoUp());
+		butt21.whenPressed(new ArmAutoDown());
+		
+		//arm manual override
+		butt3.whenPressed(new ArmUp());
+		butt3.whenReleased(new ArmStop());
+		butt31.whenPressed(new ArmDown());
+		butt31.whenReleased(new ArmStop());
 	}
 	
 	public static double getXInput() {

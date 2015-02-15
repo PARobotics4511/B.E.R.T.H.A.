@@ -25,7 +25,7 @@ public class ArmAutoUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftTalon.set(-.9);
+    	Robot.lift.liftTalon.set(-.6);
     	SmartDashboard.putBoolean("running", true);
     	if (Robot.lift.photoTop.get() == true) {
     		i = 1;

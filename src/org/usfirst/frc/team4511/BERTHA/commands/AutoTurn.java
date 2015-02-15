@@ -1,17 +1,19 @@
 package org.usfirst.frc.team4511.BERTHA.commands;
 
-import org.usfirst.frc.team4511.BERTHA.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4511.BERTHA.Robot;
 
 /**
  *
  */
-public class ArmDown extends Command {
+public class AutoTurn extends Command {
+	
+	double angle;
 
-    public ArmDown() {
+    public AutoTurn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.soulTrain);
     }
 
     // Called just before this Command runs the first time
@@ -20,20 +22,25 @@ public class ArmDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftTalon.set(.75);
+    	angle = Robot.soulTrain.gyro.getAngle();
+    	
+    	Robot.soulTrain.drive(.2);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        if (angle >= 60) return true;
+    	return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.soulTrain.driveOff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

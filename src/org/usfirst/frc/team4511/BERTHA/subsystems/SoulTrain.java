@@ -4,6 +4,7 @@ import org.usfirst.frc.team4511.BERTHA.RobotMap;
 import org.usfirst.frc.team4511.BERTHA.commands.JoystickDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.CANTalon;
 
@@ -24,7 +25,12 @@ public class SoulTrain extends Subsystem {
 	//RobotDrive
 	RobotDrive soulTrain;
 	
+	public Gyro gyro;
+	
 	public SoulTrain() {
+		
+		gyro = new Gyro(1);
+		
 		frontLeft = new CANTalon(RobotMap.frontLeft);
 		frontRight = new CANTalon(RobotMap.frontRight);
 		backLeft = new CANTalon(RobotMap.backLeft);
@@ -44,6 +50,16 @@ public class SoulTrain extends Subsystem {
     
     public void mecanumDrive(double x, double y, double z) {
     	soulTrain.mecanumDrive_Cartesian(x, y, z, 0);
+    }
+    
+    public void drive(double x) {
+    	soulTrain.drive(.5, x);
+    }
+    public void drive2(double x) {
+    	soulTrain.drive(-.5, x);
+    }
+    public void driveOff() {
+    	soulTrain.drive(0, 0);
     }
 }
 

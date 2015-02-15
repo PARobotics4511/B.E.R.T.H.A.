@@ -24,8 +24,8 @@ public class ArmAutoDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.liftTalon.set(.9);
-    	SmartDashboard.putBoolean("running", true);
+    	Robot.lift.liftTalon.set(.6);
+    	SmartDashboard.putBoolean("runningdown", true);
     	if (Robot.lift.photoBot.get() == true) {
     		i = 1;
     	}
@@ -39,10 +39,13 @@ public class ArmAutoDown extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.lift.liftTalon.set(0);
+    	SmartDashboard.putBoolean("runningdown", false);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

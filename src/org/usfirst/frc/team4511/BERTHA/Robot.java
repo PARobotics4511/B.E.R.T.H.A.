@@ -9,8 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4511.BERTHA.commands.ArmAutoUp;
 import org.usfirst.frc.team4511.BERTHA.commands.ArmAutoDown;
-import org.usfirst.frc.team4511.BERTHA.commands.AutoDriveStraight;
-import org.usfirst.frc.team4511.BERTHA.commands.AutoTurn;
+import org.usfirst.frc.team4511.BERTHA.commands.Autonomous;
 import org.usfirst.frc.team4511.BERTHA.commands.GyroReset;
 import org.usfirst.frc.team4511.BERTHA.subsystems.*;
 
@@ -23,14 +22,13 @@ import org.usfirst.frc.team4511.BERTHA.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
+	//Subsystems
 	public static final Lift lift = new Lift();
 	public static final SoulTrain soulTrain = new SoulTrain();
 	public static OI oi;
 	
 	public static Command autonomousCommand;
 	
-	//AxisCamera camera;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -42,16 +40,10 @@ public class Robot extends IterativeRobot {
         lift.compressor.start();
 	}
     public void robotInit() {
-    	
-    	//camera = new AxisCamera("10.45.11.20"); 	
-    	autonomousCommand = new AutoTurn();
-    	
-    	//CameraServer.getInstance().startAutomaticCapture("camera");
-		oi = new OI();
+    		
+    	autonomousCommand = new Autonomous();
+    	oi = new OI();
 		
-        // instantiate the command used for the autonomous period
-
-        SmartDashboard.putData("Auto Drive Straight", new AutoDriveStraight());
         SmartDashboard.putData("Photogate Command", new ArmAutoUp());
         SmartDashboard.putData("Photogate Down", new ArmAutoDown());
         SmartDashboard.putBoolean("photoTop", Robot.lift.photoTop.get());

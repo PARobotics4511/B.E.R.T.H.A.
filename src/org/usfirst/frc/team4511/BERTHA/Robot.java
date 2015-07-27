@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	
 	public Robot() {
 		soulTrain.gyro.initGyro();
-        lift.compressor.start();
+        //lift.compressor.start();
 	}
     public void robotInit() {
     		

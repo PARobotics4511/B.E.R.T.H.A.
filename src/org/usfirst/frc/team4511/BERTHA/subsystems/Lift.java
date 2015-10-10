@@ -16,9 +16,9 @@ public class Lift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	public Compressor compressor;
-	public Solenoid sol0;
-	public Solenoid sol1;
+	//public Compressor compressor;
+	//public Solenoid sol0;
+	//public Solenoid sol1;
 	
 	public CANTalon liftTalon;
 	
@@ -26,9 +26,9 @@ public class Lift extends Subsystem {
 	public DigitalInput photoTop;
 	
 	public Lift() {
-		compressor = new Compressor(RobotMap.comp);
-		sol0 = new Solenoid(RobotMap.sol0);
-		sol1 = new Solenoid(RobotMap.sol1);
+		//compressor = new Compressor(RobotMap.comp);
+		//sol0 = new Solenoid(RobotMap.sol0);
+		//sol1 = new Solenoid(RobotMap.sol1);
 		
 		liftTalon = new CANTalon(RobotMap.lift);
 		

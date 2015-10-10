@@ -17,9 +17,9 @@ public class RobotMap {
 	public static final int lift = 4;
 	
 	//Pneumatics
-	public static final int sol0 = 0;
-	public static final int sol1 = 1;
-	public static final int comp = 0;
+	//public static final int sol0 = 0;
+	//public static final int sol1 = 1;
+	//public static final int comp = 0;
 	
 	
 }

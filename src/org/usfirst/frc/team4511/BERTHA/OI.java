@@ -23,16 +23,21 @@ public class OI {
 	static JoystickButton butt21;
 	static JoystickButton butt3;
 	static JoystickButton butt31;
+	static JoystickButton butt4;
+	static JoystickButton butt5;
 	
+	static double deadzoneX;
 	static double deadzone;
 	
 	public OI() {
 		
+		deadzoneX = .03;
 		deadzone = .1;
 		
 		//sticks
 		stick0 = new Joystick(0);
 		stick1 = new Joystick(1);
+		System.out.println("This code is up to date");
 		
 		//buttons
 		butt1 = new JoystickButton(stick0, 1);
@@ -41,24 +46,32 @@ public class OI {
 		butt21 = new JoystickButton(stick1, 2);
 		butt3 = new JoystickButton(stick0, 3);
 		butt31 = new JoystickButton(stick1, 3);
+		butt4 = new JoystickButton(stick0, 4);
+		butt5 = new JoystickButton(stick1, 5);
 		
 		//arm pneumatics controls
 		butt1.whenPressed(new ArmIn());
 		butt11.whenPressed(new ArmOut());
 		
-		//arm auto motor controls
-		butt2.whenPressed(new ArmAutoUp());
-		butt21.whenPressed(new ArmAutoDown());
+		//precision drive controls
+		//butt2.whenPressed(new JoystickDriveSlow());
+		//butt21.whenPressed(new JoystickDrive());
 		
 		//arm manual override
 		butt3.whenPressed(new ArmUp());
 		butt3.whenReleased(new ArmStop());
 		butt31.whenPressed(new ArmDown());
 		butt31.whenReleased(new ArmStop());
+		butt4.whenPressed(new PowahUp());
+		butt4.whenReleased(new ArmStop());
+		butt5.whenPressed(new PowahDown());
+		butt5.whenReleased(new ArmStop());
+		butt21.whenPressed(new LiftDownSlow());
+		butt21.whenReleased(new ArmStop());
 	}
 	
 	public static double getXInput() {
-		if (Math.abs(stick0.getX()) > deadzone) return stick0.getX();
+		if (Math.abs(stick0.getX()) > deadzoneX) return stick0.getX();
 		return 0;
 	}
 	
@@ -72,7 +85,20 @@ public class OI {
 		return 0;
 	}
 	
-    
+	public static double getXInputSlow() {
+		if (Math.abs(stick0.getX()) > deadzone) return stick0.getX()/3;
+		return 0;
+	}
+	
+	public static double getYInputSlow() {
+		if (Math.abs(stick0.getY()) > deadzone) return stick0.getY()/3;
+		return 0;
+	}
+	
+	public static double getZInputSlow() {
+		if (Math.abs(stick1.getX()) > deadzone) return stick1.getX()/3;
+		return 0;
+	}
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.

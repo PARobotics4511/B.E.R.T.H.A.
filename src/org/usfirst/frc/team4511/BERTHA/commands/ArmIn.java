@@ -20,8 +20,8 @@ public class ArmIn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.sol0.set(true);
-    	Robot.lift.sol1.set(false);
+    	//Robot.lift.sol0.set(true);
+    	//Robot.lift.sol1.set(false);
     }
 
     // Make this return true when this Command no longer needs to run execute()

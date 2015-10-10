@@ -39,7 +39,7 @@ public class SoulTrain extends Subsystem {
 		soulTrain = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 		soulTrain.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
 		soulTrain.setInvertedMotor(RobotDrive.MotorType.kRearRight, true);
-		soulTrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
+		//soulTrain.setInvertedMotor(RobotDrive.MotorType.kFrontLeft, true);
 	}
 
     public void initDefaultCommand() {

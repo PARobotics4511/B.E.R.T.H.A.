@@ -7,10 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4511.BERTHA.commands.ArmAutoUp;
-import org.usfirst.frc.team4511.BERTHA.commands.ArmAutoDown;
-import org.usfirst.frc.team4511.BERTHA.commands.Autonomous;
-import org.usfirst.frc.team4511.BERTHA.commands.GyroReset;
+import org.usfirst.frc.team4511.BERTHA.commands.*;
 import org.usfirst.frc.team4511.BERTHA.subsystems.*;
 
 /**
@@ -37,7 +34,7 @@ public class Robot extends IterativeRobot {
 	
 	public Robot() {
 		soulTrain.gyro.initGyro();
-        lift.compressor.start();
+        //lift.compressor.start();
 	}
     public void robotInit() {
     		
@@ -57,7 +54,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        if (autonomousCommand != null) autonomousCommand.start();
+        autonomousCommand.start();
     }
 
     /**
@@ -72,7 +69,7 @@ public class Robot extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (autonomousCommand != null) autonomousCommand.cancel();
+        autonomousCommand.cancel();
     }
 
     /**

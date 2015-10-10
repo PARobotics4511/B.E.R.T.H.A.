@@ -32,7 +32,7 @@ public class AutoDriveStraight extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (i > 125) return true;
+    	if (i > 85) return true;
         return false;
     }
 

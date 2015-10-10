@@ -20,7 +20,11 @@ public class ArmUp extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+<<<<<<< HEAD
     	Robot.lift.liftTalon.set(-.55);
+=======
+    	Robot.lift.liftTalon.set(-0.6);
+>>>>>>> c91ed10024757a073133759894a25c3366a9319e
     }
 
     // Make this return true when this Command no longer needs to run execute()

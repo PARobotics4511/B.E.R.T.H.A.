@@ -50,8 +50,8 @@ public class OI {
 		butt5 = new JoystickButton(stick1, 5);
 		
 		//arm pneumatics controls
-		butt1.whenPressed(new ArmIn());
-		butt11.whenPressed(new ArmOut());
+		//butt1.whenPressed(new ArmIn());
+		//butt11.whenPressed(new ArmOut());
 		
 		//precision drive controls
 		//butt2.whenPressed(new JoystickDriveSlow());

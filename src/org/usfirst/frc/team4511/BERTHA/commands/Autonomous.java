@@ -12,9 +12,9 @@ public class Autonomous extends CommandGroup {
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
         // these will run in order.
-    	addParallel(new ArmIn());
-    	addSequential(new AutoTurn());
-    	addSequential(new AutoDriveStraight());
+    	//addParallel(new ArmIn());
+    	//addSequential(new AutoTurn());
+    	//addSequential(new AutoDriveStraight());
 
         // To run multiple commands at the same time,
         // use addParallel()

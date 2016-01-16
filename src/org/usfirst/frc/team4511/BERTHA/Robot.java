@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4511.BERTHA.commands.*;
 import org.usfirst.frc.team4511.BERTHA.subsystems.*;
+import org.usfirst.frc.team4511.BERTHA.subsystems.Potentiometer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -42,15 +43,18 @@ public class Robot extends IterativeRobot {
     	autonomousCommand = new Autonomous();
     	oi = new OI();
     	
-    	/*CameraServer cam = CameraServer.getInstance();
+    	CameraServer cam = CameraServer.getInstance();
     	cam.setQuality(20);
-    	cam.startAutomaticCapture("cam0");*/
+    	cam.startAutomaticCapture("cam1");
     	
         SmartDashboard.putData("Photogate Command", new ArmAutoUp());
         SmartDashboard.putData("Photogate Down", new ArmAutoDown());
         SmartDashboard.putBoolean("photoTop", Robot.lift.photoTop.get());
         SmartDashboard.putBoolean("photoBot", Robot.lift.photoBot.get());
         SmartDashboard.putData("Reset Gyro", new GyroReset());
+        Potentiometer pot = new Potentiometer();
+        SmartDashboard.putString("Potentiometer Value", pot.getSmartDashboard());
+
     }
 	
 	public void disabledPeriodic() {
